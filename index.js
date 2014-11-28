@@ -109,6 +109,7 @@ function syncServicesWithProjectIssues(projectId, callback)
         if (service.archived !== closed) {
           servicesToUpdate.push({
             id: service.id,
+            name: service.name,
             archived: closed
           });
         }
@@ -144,7 +145,7 @@ function syncServicesWithProjectIssues(projectId, callback)
     while (i < services.length) {
       service = services[i];
       if (service.service.name.indexOf(project.name) !== -1 &&
-          service.service.name.indexOf('#' + issue.id + ' ') !== -1) {
+          service.service.name.indexOf('#' + issue.iid + ' ') !== -1) {
         return service.service;
       }
       i++;
@@ -155,7 +156,7 @@ function syncServicesWithProjectIssues(projectId, callback)
 
   function getServiceNameFromIssue(issue)
   {
-    return project.name + ': #' + issue.id + ' ' + issue.title;
+    return project.name + ': #' + issue.iid + ' ' + issue.title;
   }
 }
 module.exports.syncServicesWithProjectIssues = syncServicesWithProjectIssues;
