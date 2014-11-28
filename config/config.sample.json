@@ -1,0 +1,11 @@
+{
+  "mite": {
+    "account": "account",
+    "apiKey": "apiKey"
+  },
+  "gitlab": {
+    "api": "https://gitlab.com/api/v3",
+    "privateToken": "your private token"
+  },
+  "acceptCerts": false
+}
