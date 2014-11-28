@@ -74,10 +74,21 @@ function syncServicesWithProjectIssues(projectId, callback)
 
     async.parallel([
       gitlabClient.issues.list.bind(gitlabClient.issues, {
-        id: projectId
+        id: projectId,
+        per_page: 1000,
+        state: 'opened'
       }),
-      miteClient.getServices,
-      miteClient.getArchivedServices
+      gitlabClient.issues.list.bind(gitlabClient.issues, {
+        id: projectId,
+        per_page: 1000,
+        state: 'closed'
+      }),
+      miteClient.getServices.bind(miteClient, {
+        limit: 1000
+      }),
+      miteClient.getArchivedServices.bind(miteClient, {
+        limit: 1000
+      })
     ], onLoaded);
   }
 
@@ -88,8 +99,8 @@ function syncServicesWithProjectIssues(projectId, callback)
       return;
     }
 
-    issues = results[0];
-    services = results[1].concat(results[2]);
+    issues = results[0].concat(results[1]);
+    services = results[2].concat(results[3]);
 
     issues.forEach(function(issue, i) {
       var service = getServiceForIssue(issue);
