@@ -25,7 +25,7 @@ var gitlabClient = gitlab.create(config.gitlab);
 
 function getProjectByPath(projectPath, callback)
 {
-  gitlabClient.projects.list(onProjectsLoaded);
+  gitlabClient.projects.list({per_page: 1000}, onProjectsLoaded);
 
   function onProjectsLoaded(err, projects)
   {
