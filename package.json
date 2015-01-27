@@ -1,6 +1,6 @@
 {
   "name": "gitlab2mite",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Sync your mite projects/services with your github projects/issues",
   "main": "index.js",
   "bin": "cli.js",
