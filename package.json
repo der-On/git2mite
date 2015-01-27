@@ -11,6 +11,10 @@
     "mite-api": "^0.1.0",
     "node-gitlab": "^1.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/der-On/gitlab2mite.git"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
