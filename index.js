@@ -167,7 +167,7 @@ function syncServicesWithProjectIssues(projectId, callback)
 
   function getServiceNameFromIssue(issue)
   {
-    return project.name + ': #' + issue.iid + ' ' + issue.title;
+    return project.name_with_namespace + ': #' + issue.iid + ' ' + issue.title;
   }
 }
 module.exports.syncServicesWithProjectIssues = syncServicesWithProjectIssues;
