@@ -6,16 +6,30 @@ Sync your Issues from a gitlab project to your mite account.
 
 ```bash
 $ npm install gitlab2mite
-$ npm install jake -g
+```
+
+create a config.json under ~/.gitlab2mite/config.json
+
+```json
+{
+  "mite": {
+    "account": "account",
+    "apiKey": "apiKey"
+  },
+  "gitlab": {
+    "api": "https://gitlab.com/api/v3",
+    "privateToken": "your private token"
+  },
+  "acceptCerts": false
+}
 ```
 
 ## Usage
 
-### on the CLI (using jake task runner)
+### on the CLI
 
 ```bash
-$ cd gitlab2mite/
-$ jake sync[project-path-with-namespace]
+$ gitlab2mite sync[project-path-with-namespace]
 ```
 
 ### or programatically
