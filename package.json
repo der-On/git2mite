@@ -1,19 +1,23 @@
 {
-  "name": "gitlab2mite",
-  "version": "0.0.4",
-  "description": "Sync your mite projects/services with your github projects/issues",
+  "name": "git2mite",
+  "version": "0.1.0",
+  "description": "Sync your mite projects/services with your GitHub or GitLab projects/issues",
   "main": "index.js",
   "bin": "cli.js",
   "dependencies": {
-    "async": "^0.9.0",
+    "async": "^1.1.0",
+    "es6-promise": "^2.1.1",
+    "es6-promise-series": "0.0.1",
+    "github": "^0.2.4",
+    "gitlab": "^1.3.0",
     "home": "^0.1.3",
     "jake": "^8.0.10",
     "mite-api": "^0.1.0",
-    "node-gitlab": "^1.0.0"
+    "tough-cookie": "^1.2.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/der-On/gitlab2mite.git"
+    "url": "https://github.com/der-On/git2mite.git"
   },
   "devDependencies": {},
   "scripts": {

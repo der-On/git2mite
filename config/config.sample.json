@@ -4,7 +4,10 @@
     "apiKey": "apiKey"
   },
   "gitlab": {
-    "api": "https://gitlab.com/api/v3",
+    "url": "https://gitlab.com",
+    "privateToken": "your private token"
+  },
+  "github": {
     "privateToken": "your private token"
   },
   "acceptCerts": false

@@ -5,10 +5,10 @@ Sync your Issues from a gitlab project to your mite account.
 ## Installation
 
 ```bash
-$ npm install gitlab2mite
+$ npm install git2mite
 ```
 
-create a config.json under ~/.gitlab2mite/config.json
+create a config.json under ~/.git2mite/config.json
 
 ```json
 {
@@ -20,6 +20,10 @@ create a config.json under ~/.gitlab2mite/config.json
     "api": "https://gitlab.com/api/v3",
     "privateToken": "your private token"
   },
+  "github": {
+    "privateToken": "a personal access token"
+  }
+}
   "acceptCerts": false
 }
 ```
@@ -28,18 +32,37 @@ create a config.json under ~/.gitlab2mite/config.json
 
 ### on the CLI
 
+**GitLab**
+
 ```bash
-$ gitlab2mite sync[project-path-with-namespace]
+$ git2mite sync-gitlab[project-path-with-namespace]
 ```
+
+**GitHub**
+
+```bash
+$ git2mite sync-github[project-path-with-namespace]
+```
+
 
 ### or programatically
 
 ```javascript
-var g2m = require('gitlab2mite');
+var g2m = require('git2mite');
 
-g2m.getProjectByPath('namespace/project', function(err, project) {
+g2m.gitlab.getProjectByPath('namespace/project', function(err, project) {
   if (!err) {
-    g2m.syncServicesWithProjectIssues(project.id, function(err) {
+    g2m.gitlab.syncServicesWithProjectIssues(project, function(err) {
+      if (!err) {
+        console.log('Syncing done!');
+      }
+    });
+  }
+});
+
+g2m.github.getProjectByPath('namespace/project', function(err, project) {
+  if (!err) {
+    g2m.github.syncServicesWithProjectIssues(project function(err) {
       if (!err) {
         console.log('Syncing done!');
       }
